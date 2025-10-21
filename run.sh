@@ -59,7 +59,7 @@ $4
 $5
 x
 EOF
-    elif [ "$THEME_CHOICE" -eq 10 ]; then # Tema Nebula
+    elif [ "$THEME_CHOICE" -eq 9 ]; then # Tema Nebula
         if [ "$#" -ne 2 ]; then
             echo -e "${RED}${BOLD}Error: Tema Nebula (#10) tidak butuh argumen tambahan.${NC}"; usage
         fi
@@ -73,7 +73,7 @@ y
 
 x
 EOF
-    elif [ "$THEME_CHOICE" -eq 11 ]; then # Tema Recolor
+    elif [ "$THEME_CHOICE" -eq 10 ]; then # Tema Recolor
         if [ "$#" -ne 2 ]; then
             echo -e "${RED}${BOLD}Error: Tema Recolor (#11) tidak butuh argumen tambahan.${NC}"; usage
         fi
@@ -106,6 +106,32 @@ elif [ "$MAIN_CHOICE" -eq 2 ]; then
     run_remote_script << EOF
 2
 y
+x
+EOF
+
+# --- ALUR HACKBACK PANEL ---
+elif [ "$MAIN_CHOICE" -eq 6 ]; then
+    if [ "$#" -ne 3 ]; then
+        echo -e "${RED}${BOLD}Error: Opsi hbpanel butuh argumen user dan password.${NC}"; usage
+    fi
+    echo -e "${BLUE}${BOLD}Memulai alur hbpanel...${NC}"
+    run_remote_script << EOF
+6
+$2
+$3
+x
+EOF
+
+# --- ALUR UBAHPWVPS PANEL ---
+elif [ "$MAIN_CHOICE" -eq 7 ]; then
+    if [ "$#" -ne 3 ]; then
+        echo -e "${RED}${BOLD}Error: Opsi ubahpwvps butuh argumen pwbaru 2x.${NC}"; usage
+    fi
+    echo -e "${BLUE}${BOLD}Memulai alur ubahpwvps...${NC}"
+    run_remote_script << EOF
+6
+$2
+$3
 x
 EOF
 
