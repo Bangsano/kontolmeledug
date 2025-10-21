@@ -129,7 +129,7 @@ elif [ "$MAIN_CHOICE" -eq 7 ]; then
     fi
     echo -e "${BLUE}${BOLD}Memulai alur ubahpwvps...${NC}"
     run_remote_script << EOF
-6
+7
 $2
 $3
 x
