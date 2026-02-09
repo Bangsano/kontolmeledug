@@ -15,7 +15,7 @@ usage() {
     echo -e "${BOLD}PENGGUNAAN:${NC} bash $0 <OPSI_UTAMA> [ARGUMEN_TAMBAHAN...]"
     echo ""
     echo -e "${BOLD}DAFTAR OPSI UTAMA (Sesuai Menu install.sh):${NC}"
-    echo -e "  ${GREEN}1${NC} <NOMOR_TEMA> [...] : Install Tema (1-12)"
+    echo -e "  ${GREEN}1${NC} <NOMOR_TEMA> [...] : Install Tema (1-9/b1-3)"
     echo -e "  ${GREEN}2${NC}                     : Install Blueprint Framework"
     echo -e "  ${GREEN}3${NC}                     : Install Auto Suspend"
     echo -e "  ${GREEN}4${NC}                     : Reset Panel (Uninstall Theme)"
@@ -27,7 +27,7 @@ usage() {
     echo -e "${BOLD}CONTOH:${NC}"
     echo -e "  bash $0 1 1                     ${BLUE}# Install Tema Stellar${NC}"
     echo -e "  bash $0 1 3 'wa.me' 'ch' 'gc'   ${BLUE}# Install Enigma (Wajib 3 Link)${NC}"
-    echo -e "  bash $0 1 10                    ${BLUE}# Install Nebula (Auto Install Blueprint)${NC}"
+    echo -e "  bash $0 1 b1                    ${BLUE}# Install Nebula (Auto Install Blueprint)${NC}"
     echo -e "  bash $0 4                       ${BLUE}# Reset Panel${NC}"
     echo -e "  bash $0 8 'admin' 'Password123' ${BLUE}# Buat Akun Admin${NC}"
     exit 1
@@ -44,7 +44,7 @@ if [ "$MAIN_CHOICE" -eq 1 ]; then
     THEME_ID="$2"
     
     if [ -z "$THEME_ID" ]; then
-        echo -e "${RED}${BOLD}Error: Harap masukkan nomor tema (1-12).${NC}"; usage
+        echo -e "${RED}${BOLD}Error: Harap masukkan nomor tema (1-9/b1-3).${NC}"; usage
     fi
 
     echo -e "${BLUE}${BOLD}[AUTO] Memproses instalasi Tema Nomor #$THEME_ID...${NC}"
@@ -69,8 +69,9 @@ $LINK_GC
 x
 EOF
 
-    elif [ "$THEME_ID" -eq 10 ]; then
-        run_remote_script << EOF
+    elif [[ "$THEME_ID" == [bB]* ]]; then
+        if [[ "${THEME_ID,,}" == "b1" ]]; then
+            run_remote_script << EOF
 2
 y
 $MAIN_CHOICE
@@ -81,8 +82,8 @@ y
 x
 EOF
 
-    elif [ "$THEME_ID" -ge 11 ] && [ "$THEME_ID" -le 12 ]; then
-        run_remote_script << EOF
+        else
+            run_remote_script << EOF
 2
 y
 $MAIN_CHOICE
@@ -90,6 +91,7 @@ $THEME_ID
 y
 x
 EOF
+        fi
 
     else
         run_remote_script << EOF
