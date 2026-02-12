@@ -70,7 +70,8 @@ x
 EOF
 
     elif [[ "$THEME_ID" == [bB]* ]]; then
-        if [[ "$(echo "${THEME_ID}" | tr '[:upper:]' '[:lower:]' | xargs)" == "b1" ]]; then
+        THEME_ID_LOWER="$(echo "$THEME_ID" | tr '[:upper:]' '[:lower:]' | xargs)"
+        if [[ "$THEME_ID_LOWER" == "b1" || "$THEME_ID_LOWER" == "b2" ]]; then
             run_remote_script << EOF
 2
 y
