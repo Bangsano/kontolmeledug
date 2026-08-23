@@ -33,24 +33,24 @@ usage() {
     exit 1
 }
 
-if [ -z "$1" ]; then
+if [[ -z "$1" ]]; then
     run_remote_script
     exit 0
 fi
 
 MAIN_CHOICE="$1"
 
-if [ "$MAIN_CHOICE" -eq 1 ]; then
+if [[ "$MAIN_CHOICE" == "1" ]]; then
     THEME_ID="$2"
     
-    if [ -z "$THEME_ID" ]; then
+    if [[ -z "$THEME_ID" ]]; then
         echo -e "${RED}${BOLD}Error: Harap masukkan nomor tema (1-9/b1-3).${NC}"; usage
     fi
 
     echo -e "${BLUE}${BOLD}[AUTO] Memproses instalasi Tema Nomor #$THEME_ID...${NC}"
 
-    if [ "$THEME_ID" -eq 3 ]; then
-        if [ "$#" -ne 5 ]; then
+    if [[ "$THEME_ID" == "3" ]]; then
+        if [[ "$#" -ne 5 ]]; then
             echo -e "${RED}${BOLD}Error: Tema Enigma (#3) butuh 3 link (WA, Channel, Group).${NC}"
             echo -e "Format: bash $0 1 3 <link_wa> <link_ch> <link_gc>"
             exit 1
@@ -103,7 +103,7 @@ x
 EOF
     fi
 
-elif [ "$MAIN_CHOICE" -eq 2 ]; then
+elif [[ "$MAIN_CHOICE" == "2" ]]; then
     echo -e "${BLUE}${BOLD}[AUTO] Memproses instalasi Blueprint...${NC}"
     run_remote_script << EOF
 $MAIN_CHOICE
@@ -111,7 +111,7 @@ y
 x
 EOF
 
-elif [ "$MAIN_CHOICE" -eq 3 ]; then
+elif [[ "$MAIN_CHOICE" == "3" ]]; then
     echo -e "${BLUE}${BOLD}[AUTO] Memproses instalasi Auto Suspend...${NC}"
     run_remote_script << EOF
 $MAIN_CHOICE
@@ -119,7 +119,7 @@ y
 x
 EOF
 
-elif [ "$MAIN_CHOICE" -eq 4 ]; then
+elif [[ "$MAIN_CHOICE" == "4" ]]; then
     echo -e "${BLUE}${BOLD}[AUTO] Memproses Reset Panel...${NC}"
     run_remote_script << EOF
 $MAIN_CHOICE
@@ -127,7 +127,7 @@ y
 x
 EOF
 
-elif [ "$MAIN_CHOICE" -eq 5 ]; then
+elif [[ "$MAIN_CHOICE" == "5" ]]; then
     echo -e "${RED}${BOLD}[AUTO] Memproses Uninstall Panel...${NC}"
     run_remote_script << EOF
 $MAIN_CHOICE
@@ -135,8 +135,8 @@ y
 x
 EOF
 
-elif [ "$MAIN_CHOICE" -eq 6 ]; then
-    if [ -z "$2" ]; then
+elif [[ "$MAIN_CHOICE" == "6" ]]; then
+    if [[ -z "$2" ]]; then
         echo -e "${RED}${BOLD}Error: Butuh token wings.${NC}"; usage
     fi
     echo -e "${BLUE}${BOLD}[AUTO] Mengonfigurasi Wings...${NC}"
@@ -146,12 +146,12 @@ $2
 x
 EOF
 
-elif [ "$MAIN_CHOICE" -eq 7 ]; then
+elif [[ "$MAIN_CHOICE" == "7" ]]; then
     echo -e "${YELLOW}${BOLD}Fitur Create Node sebaiknya dijalankan manual atau via script khusus.${NC}"
     run_remote_script
 
-elif [ "$MAIN_CHOICE" -eq 8 ]; then
-    if [ "$#" -ne 3 ]; then
+elif [[ "$MAIN_CHOICE" == "8" ]]; then
+    if [[ "$#" -ne 3 ]]; then
         echo -e "${RED}${BOLD}Error: Butuh username dan password baru.${NC}"
         echo -e "Format: bash $0 8 <username> <password>"
         exit 1
@@ -164,8 +164,8 @@ $3
 x
 EOF
 
-elif [ "$MAIN_CHOICE" -eq 9 ]; then
-    if [ -z "$2" ]; then
+elif [[ "$MAIN_CHOICE" == "9" ]]; then
+    if [[ -z "$2" ]]; then
         echo -e "${RED}${BOLD}Error: Butuh password baru.${NC}"
         echo -e "Format: bash $0 9 <password_baru>"
         exit 1
