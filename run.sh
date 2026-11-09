@@ -15,7 +15,7 @@ usage() {
     echo -e "${BOLD}PENGGUNAAN:${NC} bash $0 <OPSI_UTAMA> [ARGUMEN_TAMBAHAN...]"
     echo ""
     echo -e "${BOLD}DAFTAR OPSI UTAMA (Sesuai Menu install.sh):${NC}"
-    echo -e "  ${GREEN}1${NC} <NOMOR_TEMA> [...] : Install Tema (1-9/b1-3)"
+    echo -e "  ${GREEN}1${NC} <NOMOR_TEMA> [...] : Install Tema (1-11/b1-7)"
     echo -e "  ${GREEN}2${NC}                     : Install Blueprint Framework"
     echo -e "  ${GREEN}3${NC}                     : Install Auto Suspend"
     echo -e "  ${GREEN}4${NC}                     : Reset Panel (Uninstall Theme)"
@@ -44,7 +44,7 @@ if [[ "$MAIN_CHOICE" == "1" ]]; then
     THEME_ID="$2"
     
     if [[ -z "$THEME_ID" ]]; then
-        echo -e "${RED}${BOLD}Error: Harap masukkan nomor tema (1-9/b1-3).${NC}"; usage
+        echo -e "${RED}${BOLD}Error: Harap masukkan nomor tema (1-11/b1-7).${NC}"; usage
     fi
 
     echo -e "${BLUE}${BOLD}[AUTO] Memproses instalasi Tema Nomor #$THEME_ID...${NC}"
